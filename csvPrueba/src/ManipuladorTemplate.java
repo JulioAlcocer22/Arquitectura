@@ -1,27 +1,41 @@
 import java.util.ArrayList;
 
-public class ManipuladorTemplate implements ManipularArchivos{
+public class manipuladorTemplate {
+    public static void main(String[] args) {
+        String template = "Ola <     destinatario      >, voce tem <holaaa\naaaa aa> anos";
 
-    //Atributos
-    private ArrayList<String> identificadores;
+        manipuladorTemplate manipulador = new manipuladorTemplate();
+        ArrayList<String> labels = manipulador.getlabels(template);
 
-    public ManipuladorTemplate(){
-        identificadores = new ArrayList<>();
-        identificadores.add("Edad");
-        identificadores.add("destinatario");
+        for (String label : labels) {
+            System.out.println(label);
+        }
     }
 
+    public ArrayList<String> getlabels(String template) {
+        ArrayList<String> labels = new ArrayList<String>();
+        int index = 0;
+        while (index < template.length()) {
+            if (template.charAt(index) == '<') {
+                int other = template.indexOf('<', index + 1);
+                int end = template.indexOf('>', index);
+                if (other != -1 && other < end) {
+                    index = other;
+                    continue;
+                }
+                if (end == -1) {
+                    break;
+                }
+                String label = template.substring(index + 1, end);
+                label = label.replace("\n", " ");
+                label = label.trim();
+                labels.add(label);
+                index = end + 1;
+            } else {
+                index++;
+            }
+        }
 
-    @Override
-    public void leerArchivo() {
-    }
-
-    @Override
-    public boolean archivoValido() {
-        return false;
-    }
-
-    public ArrayList<String> getIdentificadores() {
-        return identificadores;
+        return labels;
     }
 }
