@@ -1,15 +1,27 @@
 import java.util.ArrayList;
 
-public class manipuladorTemplate {
-    public static void main(String[] args) {
-        String template = "Ola <     destinatario      >, voce tem <holaaa\naaaa aa> anos";
+public class ManipuladorTemplate {
+    private String template;
+    private ArrayList<String> labels;
 
-        manipuladorTemplate manipulador = new manipuladorTemplate();
-        ArrayList<String> labels = manipulador.getlabels(template);
+    public ManipuladorTemplate() {
+        this.template = "";
+    }
 
-        for (String label : labels) {
-            System.out.println(label);
-        }
+    public String getTemplate() {
+        return template;
+    }
+
+    public void setTemplate(String template) {
+        this.template = template;
+    }
+
+    public ArrayList<String> getIdentificadores() {
+        return labels;
+    }
+
+    public void setIdentificadores(ArrayList<String> labels) {
+        this.labels = labels;
     }
 
     public ArrayList<String> getlabels(String template) {
