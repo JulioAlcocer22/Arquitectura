@@ -14,12 +14,6 @@ public class Main {
         //     System.out.println(identificador);
         // }
 
-        ManipuladorCSV manipuladorCSV = new ManipuladorCSV("src/datos.csv", manipuladorTemplate.getIdentificadores());
-        manipuladorCSV.leerArchivo();
-        manipuladorCSV.imprimirInformacionCSV(manipuladorCSV.getContenidoCSV());
-        manipuladorCSV.csvSoloTienePrimeraFila();
-        System.out.println("\nAhora solo el contenido de acuerdo a los identificadores\n");
-        manipuladorCSV.generarContenidoCsvParaTemplate();
-        manipuladorCSV.imprimirInformacionCSV(manipuladorCSV.getContenidoCsvParaTemplate());
+
     }
 }
