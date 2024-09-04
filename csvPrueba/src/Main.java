@@ -5,7 +5,14 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         Controller controller = new Controller();
-        controller.generarPDF();
+
+        ManipuladorTemplate manipuladorTemplate = new ManipuladorTemplate();
+
+        manipuladorTemplate.setTemplate("<            Nombre      >,<           Edad      >,<          Direccion  > hola quiero saber como estas");
+        ArrayList<String> identificadores = manipuladorTemplate.getlabels();
+        manipuladorTemplate.setIdentificadores(identificadores);
+
+        // controller.generarPDF();
 
     }
 }

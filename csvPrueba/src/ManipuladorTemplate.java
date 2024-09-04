@@ -29,7 +29,7 @@ public class ManipuladorTemplate {
         int index = 0;
         while (index < template.length()) {
             if (template.charAt(index) == '<') {
-                int other = template.indexOf('<', index + 1);
+                int other = template.indexOf('<', index+1);
                 int end = template.indexOf('>', index);
                 if (other != -1 && other < end) {
                     index = other;
@@ -42,7 +42,10 @@ public class ManipuladorTemplate {
                 label = label.replace("\n", " ");
                 label = label.trim();
                 labels.add(label);
-                index = end + 1;
+
+                this.template = this.template.substring(0, index+1) + label + this.template.substring(end);
+
+                index++;
             } else {
                 index++;
             }
