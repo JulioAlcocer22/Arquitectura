@@ -6,7 +6,6 @@ public class Reemplazador {
     private String template;
     private ArrayList<String> identificadores;
     private HashMap<String, ArrayList<String>> contenidoCSV;
-    private GeneradorPDF generador;
 
     public void setTemplate(String template) {
         this.template = template;
@@ -20,11 +19,8 @@ public class Reemplazador {
         this.contenidoCSV = contenidoCSV;
     }
 
-    public void setGenerador(GeneradorPDF generador) {
-        this.generador = generador;
-    }
-
-    public void reemplazarEtiquetas(){
+    public ArrayList<String> reemplazarEtiquetas(){
+        ArrayList<String> textoCompleto = new ArrayList<>();
         String key = identificadores.get(0);
         int n = contenidoCSV.get(key).size();
         int idx = 0;
@@ -34,7 +30,8 @@ public class Reemplazador {
                 String val = contenidoCSV.get(label).get(idx);
                 aux = aux.replace("<" + label + ">", val);
             }
-            generador.generarPDF(aux, idx++);
+            textoCompleto.add(aux);
         }
+        return textoCompleto;
     }
 }
