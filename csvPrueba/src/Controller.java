@@ -6,9 +6,8 @@ public class Controller {
     private ValidadorContenidoCSV validadorContenidoCSV;
     //private ValidadorTemplate validadorTemplate;
     private Reemplazador reemplazador;
+    private ArrayList<String> contenido;
     private GeneradorPDF generadorPdf;
-
-    private GeneradorPDF generadorPDF;
 
     public Controller() {
         manipuladorTemplate = new ManipuladorTemplate();
@@ -38,7 +37,7 @@ public class Controller {
             reemplazador.setTemplate(template);
             reemplazador.setIdentificadores(identificadores);
             reemplazador.setContenidoCSV(manipuladorCSV.getContenidoCSV());
-            reemplazador.reemplazarEtiquetas();
+            generadorPdf.arrayListToPDFs(reemplazador.reemplazarEtiquetas());
         }
         validadorContenidoCSV.imprimirMensaje();
     }
