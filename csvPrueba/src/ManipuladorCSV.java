@@ -16,30 +16,31 @@ public class ManipuladorCSV {
 
     public void leerArchivo(){
         String linea;
-        int clave = 1;
         try(BufferedReader br = new BufferedReader(new FileReader(direccionArchivo))){
             while((linea = br.readLine()) != null){
                 //System.out.println(linea);
-                String[] palabras = linea.split(",");//Separa la oracion en subcadenas donde halla ","
-                ArrayList<String> fila = new ArrayList<>();
-                for(String palabra : palabras){
-                    fila.add(palabra);
-                    //System.out.print(palabra );
-                }
+                String[] palabras = linea.split(","); //Separa la oracion en subcadenas donde halla ","
                 if(contenidoCSV.isEmpty()){
+                    ArrayList<String> fila = new ArrayList<>();
+                    for(String palabra: palabras) fila.add(palabra);
                     contenidoCSV.put("Encabezado", fila);
                 }
                 else{
-                    String nombreClave = "Dato " + clave;
-                    contenidoCSV.put(nombreClave, fila);
-                    clave++;
+                    int idx = 0;
+                    for(String palabra: palabras){
+                        String key = contenidoCSV.get("Encabezado").get(idx);
+                        if(!contenidoCSV.containsKey(key)){
+                            contenidoCSV.put(key, new ArrayList<>());
+                        }
+                        contenidoCSV.get(key).add(palabra);
+                        idx++;
+                    }
                 }
             }
         }catch (Exception e){
             System.out.println(e);
         }
     }
-
 
     public HashMap<String, ArrayList<String>> getContenidoCSV() {
         return contenidoCSV;

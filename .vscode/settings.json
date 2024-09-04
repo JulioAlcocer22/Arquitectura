@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "csvPrueba/lib/itextpdf-5.5.13.4.jar"
+    ]
+}
