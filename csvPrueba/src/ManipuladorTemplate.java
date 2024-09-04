@@ -24,7 +24,7 @@ public class ManipuladorTemplate {
         this.labels = labels;
     }
 
-    public ArrayList<String> getlabels(String template) {
+    public ArrayList<String> getlabels() {
         ArrayList<String> labels = new ArrayList<String>();
         int index = 0;
         while (index < template.length()) {
@@ -47,7 +47,6 @@ public class ManipuladorTemplate {
                 index++;
             }
         }
-
         return labels;
     }
 }

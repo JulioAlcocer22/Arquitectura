@@ -9,9 +9,12 @@ public class ManipuladorCSV {
     private LinkedHashMap<String, ArrayList<String>> contenidoCSV;
 
 
-    public ManipuladorCSV(String direccionArchivo){
-        this.direccionArchivo = direccionArchivo;
+    public ManipuladorCSV(){
         contenidoCSV = new LinkedHashMap<>();
+    }
+
+    public void setDireccionArchivo(String direccionArchivo) {
+        this.direccionArchivo = direccionArchivo;
     }
 
     public void leerArchivo(){
