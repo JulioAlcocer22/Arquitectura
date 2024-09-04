@@ -32,12 +32,15 @@ public class Controller {
         validadorContenidoCSV.setContenidoCSV(manipuladorCSV.getContenidoCSV());
         validadorContenidoCSV.setIdentificadores(identificadores);
 
+        System.out.println("Validando contenido CSV");
 
         if(validadorContenidoCSV.validar()){
             reemplazador.setTemplate(template);
             reemplazador.setIdentificadores(identificadores);
             reemplazador.setContenidoCSV(manipuladorCSV.getContenidoCSV());
+            System.out.println("Reemplazando etiquetas");
             generadorPdf.arrayListToPDFs(reemplazador.reemplazarEtiquetas());
+            System.out.println("PDF generado");
         }
         validadorContenidoCSV.imprimirMensaje();
     }

@@ -31,6 +31,7 @@ public class Reemplazador {
                 aux = aux.replace("<" + label + ">", val);
             }
             textoCompleto.add(aux);
+            idx++;
         }
         return textoCompleto;
     }
