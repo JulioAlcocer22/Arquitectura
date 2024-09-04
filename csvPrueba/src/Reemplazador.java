@@ -8,11 +8,20 @@ public class Reemplazador {
     private HashMap<String, ArrayList<String>> contenidoCSV;
     private GeneradorPDF generador;
 
-    public Reemplazador(String template, ArrayList<String> identificadores, HashMap<String, ArrayList<String>> contenidoCSV){
+    public void setTemplate(String template) {
         this.template = template;
+    }
+
+    public void setIdentificadores(ArrayList<String> identificadores) {
         this.identificadores = identificadores;
+    }
+
+    public void setContenidoCSV(HashMap<String, ArrayList<String>> contenidoCSV) {
         this.contenidoCSV = contenidoCSV;
-        generador = new GeneradorPDF();
+    }
+
+    public void setGenerador(GeneradorPDF generador) {
+        this.generador = generador;
     }
 
     public void reemplazarEtiquetas(){

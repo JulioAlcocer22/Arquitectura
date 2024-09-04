@@ -7,8 +7,14 @@ public class ValidadorContenidoCSV {
     private ArrayList<String> identificadores; 
     private String errorMessage = "No existe ningún error identificado";
 
-    public ValidadorContenidoCSV(HashMap<String, ArrayList<String>> contenidoCSV, ArrayList<String> identificadores){
+    public ValidadorContenidoCSV(){
+    }
+
+    public void setContenidoCSV(HashMap<String, ArrayList<String>> contenidoCSV) {
         this.contenidoCSV = contenidoCSV;
+    }
+
+    public void setIdentificadores(ArrayList<String> identificadores) {
         this.identificadores = identificadores;
     }
 

@@ -3,10 +3,20 @@ import java.util.ArrayList;
 public class Controller {
     private ManipuladorTemplate manipuladorTemplate;
     private ManipuladorCSV manipuladorCSV;
+    private ValidadorContenidoCSV validadorContenidoCSV;
+    //private ValidadorTemplate validadorTemplate;
+    private Reemplazador reemplazador;
+    private GeneradorPDF generadorPdf;
+
+    private GeneradorPDF generadorPDF;
 
     public Controller() {
         manipuladorTemplate = new ManipuladorTemplate();
         manipuladorCSV = new ManipuladorCSV();
+        validadorContenidoCSV = new ValidadorContenidoCSV();
+        //validadorTemplate = new ValidadorTemplate();
+        reemplazador = new Reemplazador();
+        generadorPdf = new GeneradorPDF();
     }
 
     public void generarPDF(){
@@ -17,18 +27,19 @@ public class Controller {
         manipuladorTemplate.setTemplate(template);
         ArrayList<String> identificadores = manipuladorTemplate.getlabels();
         manipuladorTemplate.setIdentificadores(identificadores);
-
-
         manipuladorCSV.leerArchivo();
         manipuladorCSV.getContenidoCSV().forEach((k,v) -> System.out.println("Key: " + k + " Value: " + v));
 
-        //VALIDACIÓN!
-        ValidadorContenidoCSV validador = new ValidadorContenidoCSV(manipuladorCSV.getContenidoCSV(), identificadores);
+        validadorContenidoCSV.setContenidoCSV(manipuladorCSV.getContenidoCSV());
+        validadorContenidoCSV.setIdentificadores(identificadores);
 
-        if(validador.validar()){
-            Reemplazador reemplazador = new Reemplazador(template, identificadores, manipuladorCSV.getContenidoCSV());
+
+        if(validadorContenidoCSV.validar()){
+            reemplazador.setTemplate(template);
+            reemplazador.setIdentificadores(identificadores);
+            reemplazador.setContenidoCSV(manipuladorCSV.getContenidoCSV());
             reemplazador.reemplazarEtiquetas();
         }
-        validador.imprimirMensaje();
+        validadorContenidoCSV.imprimirMensaje();
     }
 }

@@ -8,8 +8,6 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 public class GeneradorPDF {
 
-    public GeneradorPDF(){}
-
     public void generarPDF(String texto, int idx){
         Document document = new Document();
         try {
