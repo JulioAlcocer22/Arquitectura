@@ -9,22 +9,26 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 public class GeneradorPDF {
     public void arrayListToPDFs(ArrayList<String> contenido){
-        int idx = 0;
-        for(String correo : contenido){
-            generarPDF(correo, idx++);
-        }
-    }
-    public void generarPDF(String texto, int idx){
         Document document = new Document();
         try {
-            PdfWriter.getInstance(document, new FileOutputStream("Página " + idx + ".pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream("TEST.pdf"));
             document.open();
-            Paragraph p = new Paragraph(texto);
-            document.add(p);
         } catch (FileNotFoundException | DocumentException e) {
             e.printStackTrace();
-        } finally {
-            document.close();
-        } 
+        }
+        for(String correo : contenido){
+            generarPDF(correo, document);
+        }
+        document.close();
+    }
+
+    public void generarPDF(String texto, Document document){
+        Paragraph p = new Paragraph(texto);
+        try {
+            document.add(p);
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        }
+        document.newPage();
     }
 }

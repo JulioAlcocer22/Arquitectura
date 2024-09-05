@@ -13,6 +13,5 @@ public class Main {
         // manipuladorTemplate.setIdentificadores(identificadores);
 
         controller.generarPDF();
-
     }
 }
