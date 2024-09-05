@@ -28,15 +28,13 @@ public class ManipuladorTemplate {
         this.template = contenido.toString();
     }
 
-    public ArrayList<String> getIdentificadores() {
-        return labels;
-    }
+
 
     public void setIdentificadores(ArrayList<String> labels) {
         this.labels = labels;
     }
 
-    public ArrayList<String> getlabels() {
+    public ArrayList<String> getIdentificadores() {
         ArrayList<String> labels = new ArrayList<String>();
         int index = 0;
         while (index < template.length()) {
