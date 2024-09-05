@@ -1,0 +1,3 @@
+<<Nombre>,<Edad>,<Direccion>> 
+hola quiero saber 
+     como estas;

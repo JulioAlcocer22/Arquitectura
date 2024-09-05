@@ -21,9 +21,8 @@ public class Controller {
     public void generarPDF(){
         manipuladorCSV.setDireccionArchivo("csvPrueba\\src\\datos.csv");
         //El template se debe recuperar como String tras leer un archivo
-        String template = "<<Nombre>,<Edad>,<Direccion>> hola quiero saber como estas";
-
-        manipuladorTemplate.setTemplate(template);
+        manipuladorTemplate.setTemplate("csvPrueba\\src\\template.txt");
+        String template = manipuladorTemplate.getTemplate();
         ArrayList<String> identificadores = manipuladorTemplate.getlabels();
         manipuladorTemplate.setIdentificadores(identificadores);
         manipuladorCSV.leerArchivo();

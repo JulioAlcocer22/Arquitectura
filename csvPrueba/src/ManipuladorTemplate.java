@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ManipuladorTemplate {
@@ -12,8 +15,17 @@ public class ManipuladorTemplate {
         return template;
     }
 
-    public void setTemplate(String template) {
-        this.template = template;
+    public void setTemplate(String ruta) {
+        StringBuilder contenido = new StringBuilder();
+        try (BufferedReader br = new BufferedReader(new FileReader(ruta))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                contenido.append(linea).append("\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        this.template = contenido.toString();
     }
 
     public ArrayList<String> getIdentificadores() {
