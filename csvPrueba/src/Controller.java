@@ -22,8 +22,8 @@ public class Controller {
         manipuladorCSV.setDireccionArchivo("csvPrueba\\src\\datos.csv");
         //El template se debe recuperar como String tras leer un archivo
         manipuladorTemplate.setTemplate("csvPrueba\\src\\template.txt");
-        String template = manipuladorTemplate.getTemplate();
         ArrayList<String> identificadores = manipuladorTemplate.getlabels();
+        String template = manipuladorTemplate.getTemplate();
         manipuladorTemplate.setIdentificadores(identificadores);
         manipuladorCSV.leerArchivo();
         manipuladorCSV.getContenidoCSV().forEach((k,v) -> System.out.println("Key: " + k + " Value: " + v));
