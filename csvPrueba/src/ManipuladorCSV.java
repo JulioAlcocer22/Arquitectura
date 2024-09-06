@@ -22,7 +22,7 @@ public class ManipuladorCSV {
         try(BufferedReader br = new BufferedReader(new FileReader(direccionArchivo))){
             while((linea = br.readLine()) != null){
                 //System.out.println(linea);
-                String[] palabras = linea.split(","); //Separa la oracion en subcadenas donde halla ","
+                String[] palabras = linea.split(",", -1); //Separa la oracion en subcadenas donde halla ","
                 if(contenidoCSV.isEmpty()){
                     ArrayList<String> fila = new ArrayList<>();
                     for(String palabra: palabras) fila.add(palabra);

@@ -31,13 +31,7 @@ public class Controller {
         System.out.println("Validando contenido CSV");
         validador.validar();
 
-
-            reemplazador.setTemplate(manipuladorTemplate.getTemplate());
-            reemplazador.setIdentificadores(manipuladorTemplate.getIdentificadores());
-            reemplazador.setContenidoCSV(manipuladorCSV.getContenidoCSV());
-            System.out.println("Reemplazando etiquetas");
-            generadorPdf.arrayListToPDFs(reemplazador.reemplazarEtiquetas());
-            System.out.println("PDF generado");
+        crearPDF();
 
         validador.imprimirMensaje();
     }
@@ -50,6 +44,14 @@ public class Controller {
         manipuladorCSV.leerArchivo();
     }
 
+    private void crearPDF(){
+        reemplazador.setTemplate(manipuladorTemplate.getTemplate());
+        reemplazador.setIdentificadores(manipuladorTemplate.getIdentificadores());
+        reemplazador.setContenidoCSV(manipuladorCSV.getContenidoCSV());
+        System.out.println("Reemplazando etiquetas");
+        generadorPdf.arrayListToPDFs(reemplazador.reemplazarEtiquetas());
+        System.out.println("PDF generado");
+    }
 
 
 
