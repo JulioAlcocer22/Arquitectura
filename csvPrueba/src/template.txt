@@ -1,4 +1,19 @@
-<<Nombre>,<Edad>,<Apellido>>
-hola quiero saber 
-     como estas;
-     <Fecha>
+Mérida Yucatán a <  Fecha>
+ Estimado <Destinatario> con edad <Edad>:
+
+ La presente es un último recordatorio para todas y todos los interesados
+ en adquirir la playera de la Facultad de Matemáticas cuyo modelo se adjunta
+ al presente correo que hoy jueves 5 de septiembre es el último día para
+ pasar al departamento de contabilidad en horario de 9:00 a 18:00, donde
+ se tienen playeras de diferentes tallas a fin de que determinen la que mejor
+ les acomode. El costo es de $160.
+
+ Para los que les sea imposible pasar el día de hoy les informo que se
+ hará un pedido de algunas playeras adicionales en las diferentes tallas
+ y podrán pasar a registrarse el viernes 6 o lunes 9.
+
+ Finalmente, les reitero la invitación a la inauguración de los Juegos
+  Deportivos  Universitarios que se celebrará el día de hoy jueves 5 de
+  septiembre a las 19:00 en el Centro Deportivo Universitario.
+
+ Saludos cordiales, <Remitente>.

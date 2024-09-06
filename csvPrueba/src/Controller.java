@@ -19,15 +19,8 @@ public class Controller {
     public void generarPDF(){
 
         abrirDocumentos("csvPrueba/src/template.txt","csvPrueba/src/datos.csv");
-
-
-
-
-
-
         validador.setContenidoCSV(manipuladorCSV.getContenidoCSV());
         validador.setIdentificadores(manipuladorTemplate.getIdentificadores());
-
         System.out.println("Validando contenido CSV");
         validador.validar();
 
