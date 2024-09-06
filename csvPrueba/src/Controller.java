@@ -17,33 +17,30 @@ public class Controller {
     }
 
     public void generarPDF(){
-
         abrirDocumentos("csvPrueba/src/template.txt","csvPrueba/src/datos.csv");
-        validador.setContenidoCSV(manipuladorCSV.getContenidoCSV());
-        validador.setIdentificadores(manipuladorTemplate.getIdentificadores());
-        System.out.println("Validando contenido CSV");
-        validador.validar();
-
-        crearPDF();
-
+        validarEtiquetas();
+        reemplazarEtiquetas();
+        generadorPdf.arrayListToPDFs(reemplazador.reemplazarEtiquetas());
+        System.out.println("PDF Generado");
         validador.imprimirMensaje();
     }
     private void abrirDocumentos(String direccionTxt,String direccionCSV ){
-        //abriendo archivo Txt
         manipuladorTemplate.setTemplate(direccionTxt);
-        //manipuladorTemplate.setIdentificadores(manipuladorTemplate.getIdentificadores());
-        //abriendo archivo CSV
         manipuladorCSV.setDireccionArchivo(direccionCSV);
         manipuladorCSV.leerArchivo();
     }
+    public void validarEtiquetas(){
+        validador.setContenidoCSV(manipuladorCSV.getContenidoCSV());
+        validador.setIdentificadores(manipuladorTemplate.getIdentificadores());
+        validador.validar();
+        System.out.println("Etiquetas validadas");
+    }
 
-    private void crearPDF(){
+    private void reemplazarEtiquetas(){
         reemplazador.setTemplate(manipuladorTemplate.getTemplate());
         reemplazador.setIdentificadores(manipuladorTemplate.getIdentificadores());
         reemplazador.setContenidoCSV(manipuladorCSV.getContenidoCSV());
-        System.out.println("Reemplazando etiquetas");
-        generadorPdf.arrayListToPDFs(reemplazador.reemplazarEtiquetas());
-        System.out.println("PDF generado");
+        System.out.println("Etiquetas reemplazadas");
     }
 
 
